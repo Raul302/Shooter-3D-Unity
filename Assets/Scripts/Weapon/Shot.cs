@@ -21,8 +21,11 @@ public class Shot : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
 
-            if(Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
+
+            if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
             {
+                
+                FindFirstObjectByType<SoundManager>().PlayGunShotSound();
                 GameManager.Instance.gunAmmo--;
 
                 GameObject new_bullet;
