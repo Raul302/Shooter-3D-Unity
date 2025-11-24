@@ -11,6 +11,9 @@ public class EnemyShoot : MonoBehaviour
 
     public float bullet_velocity = 100;
 
+    private float distance_to_player;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,11 +30,19 @@ public class EnemyShoot : MonoBehaviour
 
     void ShootPlayer()
     {
-        Vector3 player_direction = player_position.position - transform.position;
-        GameObject new_bullet;
-        new_bullet = Instantiate(enemy_bullet,spawn_bullet_point.position,spawn_bullet_point.rotation);
+        distance_to_player =
+           Vector3.Distance(transform.position, player_position.transform.position);
 
-        new_bullet.GetComponent<Rigidbody>().AddForce(player_direction*bullet_velocity,ForceMode.Force);
+        if (distance_to_player <= 30)
+        {
+            Vector3 player_direction = player_position.position - transform.position;
+            GameObject new_bullet;
+            new_bullet = Instantiate(enemy_bullet, spawn_bullet_point.position, spawn_bullet_point.rotation);
+
+            new_bullet.GetComponent<Rigidbody>().AddForce(player_direction * bullet_velocity, ForceMode.Force);
+        }
+        
+       
 
 
         Invoke("ShootPlayer", 3);
