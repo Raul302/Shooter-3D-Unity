@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
 
         is_grounded = Physics.CheckSphere(ground_check.position, sphereRadius, ground_mask);
 
+
+
         if (is_grounded && velocity.y < 0) 
         {
             velocity.y = -2f;

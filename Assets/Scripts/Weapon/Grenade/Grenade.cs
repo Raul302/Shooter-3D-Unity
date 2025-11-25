@@ -29,7 +29,6 @@ public class Grenade : MonoBehaviour
 
     public void Exploded()
     {
-        FindFirstObjectByType<SoundManager>().PlayGrenadeExplosionSound();
         Instantiate(explosion_effect,transform.position,transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
@@ -44,6 +43,12 @@ public class Grenade : MonoBehaviour
 
         }
 
-        Destroy(gameObject);
+        FindFirstObjectByType<SoundManager>().PlayGrenadeExplosionSound();
+
+        gameObject.GetComponent<SphereCollider>().enabled = false;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+
+        Destroy(gameObject,delay*2);
     }
 }
