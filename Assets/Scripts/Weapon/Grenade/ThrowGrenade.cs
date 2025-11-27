@@ -23,7 +23,8 @@ public class ThrowGrenade : MonoBehaviour
 
     public void Throw()
     {
-        FindFirstObjectByType<SoundManager>().PlayThrowingGrenadeSound();
+
+        SoundManager.Instance.PlayThrowingGrenadeSound();
         GameObject new_grande = Instantiate(grenade_prefab,transform.position,transform.rotation);
 
         new_grande.GetComponent<Rigidbody>().AddForce(transform.forward * throw_force);

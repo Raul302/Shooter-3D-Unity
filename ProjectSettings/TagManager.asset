@@ -8,6 +8,9 @@ TagManager:
   - GunAmmo
   - DeathFloor
   - EnemyBullet
+  - Switch
+  - Door
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Floor
   - Player
   - NoLight
-  - 
+  - InteractiveObject
   - 
   - 
   - 

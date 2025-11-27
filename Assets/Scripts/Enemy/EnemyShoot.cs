@@ -9,7 +9,7 @@ public class EnemyShoot : MonoBehaviour
 
     private Transform player_position;
 
-    public float bullet_velocity = 100;
+    public float bullet_velocity = 10;
 
     private float distance_to_player;
 

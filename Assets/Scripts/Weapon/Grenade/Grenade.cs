@@ -42,8 +42,7 @@ public class Grenade : MonoBehaviour
             }
 
         }
-
-        FindFirstObjectByType<SoundManager>().PlayGrenadeExplosionSound();
+        SoundManager.Instance.PlayGrenadeExplosionSound();
 
         gameObject.GetComponent<SphereCollider>().enabled = false;
         gameObject.GetComponent<MeshRenderer>().enabled = false;

@@ -11,6 +11,7 @@ public class PlayerInteractions : MonoBehaviour
         {
 
             GameManager.Instance.gunAmmo += other.gameObject.GetComponent<AmmoBox>().ammo;
+            SoundManager.Instance.PlayAmmoReload();
 
             Destroy(other.gameObject);
 
